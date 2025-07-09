@@ -1,0 +1,26 @@
+
+{% extends "layout.html" %}
+
+{% block title %}Página Inicial{% endblock %}
+
+{% block content %}
+    <div class="welcome-container">
+        {% if user_name %}
+            <div class="user-welcome">
+                <div class="welcome-icon">👋</div>
+                <h2>Olá, {{ user_name }}!</h2>
+                <p class="welcome-message">Bem-vindo de volta ao seu painel</p>
+            </div>
+        {% else %}
+            <div class="guest-welcome">
+                <div class="welcome-icon">🔐</div>
+                <h2>Bem-vindo!</h2>
+                <p class="welcome-message">Faça login ou crie uma conta para começar</p>
+                <div class="action-buttons">
+                    <a href="/login" class="btn btn-primary">Entrar</a>
+                    <a href="/login?register=1" class="btn btn-secondary">Criar Conta</a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
